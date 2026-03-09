@@ -1,0 +1,136 @@
+TITLE: Your title goes here
+DATA:
+  FILE = "SAPPENFIELD_STRUCTURAL_LAST_T1T9_V4.dat";
+VARIABLE: 
+NAMES = subID SiteID FamilyID Y_SEX ppensity CAxDpTP_1 CAxDpTP_3 CAxDpTP_5 CAxDpTP_7
+     CAxDpTP_9 CAxDpTP_11 CIntSTP_1 CIntSTP_3 CIntSTP_5 CIntSTP_7 CIntSTP_9
+     CIntSTP_11 CSomSTP_1 CSomSTP_3 CSomSTP_5 CSomSTP_7 CSomSTP_9 CSomSTP_11
+     CWtDpTP_1 CWtDpTP_3 CWtDpTP_5 CWtDpTP_7 CWtDpTP_9 CWtDpTP_11 DADPRIM_1
+     DADPRIM_3 DADPRIM_5 DADPRIM_7 DADPRIM_9 DADPRIM_11 D_1acc_1 D_1acc_3 D_1acc_7
+     D_1acc_9 D_1acc_11 D_2acc_1 D_2acc_3 D_2acc_7 D_2acc_9 D_2acc_11 D_3acc_1
+     D_3acc_3 D_3acc_7 D_3acc_9 D_3acc_11 D_4acc_1 D_4acc_3 D_4acc_7 D_4acc_9
+     D_4acc_11 D_5acc_1 D_5acc_3 D_5acc_7 D_5acc_9 D_5acc_11 D_acc_M_1 D_acc_M_3
+     D_acc_M_7 D_acc_M_9 D_acc_M_11 HiParEdu_1 HiParEdu_3 HiParEdu_5 HiParEdu_7
+     HiParEdu_9 HiParEdu_11 INCOME6L_1 INCOME6L_3 INCOME6L_5 INCOME6L_7 INCOME6L_9
+     INCOME6L_11 M_1acc_1 M_1acc_3 M_1acc_7 M_1acc_9 M_1acc_11 M_2acc_1 M_2acc_3
+     M_2acc_7 M_2acc_9 M_2acc_11 M_3acc_1 M_3acc_3 M_3acc_7 M_3acc_9 M_3acc_11
+     M_4acc_1 M_4acc_3 M_4acc_7 M_4acc_9 M_4acc_11 M_5acc_1 M_5acc_3 M_5acc_7
+     M_5acc_9 M_5acc_11 M_acc_M_1 M_acc_M_3 M_acc_M_7 M_acc_M_9 M_acc_M_11 NSSIT_1
+     NSSIT_3 NSSIT_5 NSSIT_7 NSSIT_9 NSSIT_11 NSSIpr_1 NSSIpr_3 NSSIpr_5 NSSIpr_7
+     NSSIpr_9 NSSIpr_11 NSSIpt_1 NSSIpt_3 NSSIpt_5 NSSIpt_7 NSSIpt_9 NSSIpt_11
+     SuIdActT_1 SuIdActT_3 SuIdActT_5 SuIdActT_7 SuIdActT_9 SuIdActT_11 SuIdActpr_1
+     SuIdActpr_3 SuIdActpr_5 SuIdActpr_7 SuIdActpr_9 SuIdActpr_11 SuIdActpt_1
+     SuIdActpt_3 SuIdActpt_5 SuIdActpt_7 SuIdActpt_9 SuIdActpt_11 SuIdPasT_1
+     SuIdPasT_3 SuIdPasT_5 SuIdPasT_7 SuIdPasT_9 SuIdPasT_11 SuIdPaspr_1 SuIdPaspr_3
+     SuIdPaspr_5 SuIdPaspr_7 SuIdPaspr_9 SuIdPaspr_11 SuIdPaspt_1 SuIdPaspt_3
+     SuIdPaspt_5 SuIdPaspt_7 SuIdPaspt_9 SuIdPaspt_11 Y_AGE_1 Y_AGE_3 Y_AGE_5
+     Y_AGE_7 Y_AGE_9 Y_AGE_11 Y_RACE_1 Y_RACE_3 Y_RACE_5 Y_RACE_7 Y_RACE_9 Y_RACE_11
+     rsMnMOT_1 rsMnMOT_5 rsMnMOT_9 rsSAL_Lamy_1 rsSAL_Lamy_5 rsSAL_Lamy_9
+     rsSAL_Lnacc_1 rsSAL_Lnacc_5 rsSAL_Lnacc_9 rsSAL_Ltha_1 rsSAL_Ltha_5
+     rsSAL_Ltha_9 rsSAL_Ramy_1 rsSAL_Ramy_5 rsSAL_Ramy_9 rsSAL_Rnacc_1 rsSAL_Rnacc_5
+     rsSAL_Rnacc_9 rsSAL_Rtha_1 rsSAL_Rtha_5 rsSAL_Rtha_9 rsSAL_SAL_1 rsSAL_SAL_5
+     rsSAL_SAL_9 scanID_1 scanID_3 scanID_5 scanID_7 scanID_9 scanID_11 IMG_PT1T5
+     IMG_PT1T9 NUMID S_rsMnMOT_1 S_rsMnMOT_5 S_rsMnMOT_9 S_rsSAL_Lamy_1
+     S_rsSAL_Lamy_5 S_rsSAL_Lamy_9 S_rsSAL_Lnacc_1 S_rsSAL_Lnacc_5 S_rsSAL_Lnacc_9
+     S_rsSAL_Ltha_1 S_rsSAL_Ltha_5 S_rsSAL_Ltha_9 S_rsSAL_Ramy_1 S_rsSAL_Ramy_5
+     S_rsSAL_Ramy_9 S_rsSAL_Rnacc_1 S_rsSAL_Rnacc_5 S_rsSAL_Rnacc_9 S_rsSAL_Rtha_1
+     S_rsSAL_Rtha_5 S_rsSAL_Rtha_9 S_rsSAL_SAL_1 S_rsSAL_SAL_5 S_rsSAL_SAL_9
+     S_CAxDpTP_1 S_CAxDpTP_3 S_CAxDpTP_5 S_CAxDpTP_7 S_CAxDpTP_9 S_CAxDpTP_11
+     S_CIntSTP_1 S_CIntSTP_3 S_CIntSTP_5 S_CIntSTP_7 S_CIntSTP_9 S_CIntSTP_11
+     S_CSomSTP_1 S_CSomSTP_3 S_CSomSTP_5 S_CSomSTP_7 S_CSomSTP_9 S_CSomSTP_11
+     S_CWtDpTP_1 S_CWtDpTP_3 S_CWtDpTP_5 S_CWtDpTP_7 S_CWtDpTP_9 S_CWtDpTP_11
+     C_rsMnMOT_1 C_rsMnMOT_5 C_rsMnMOT_9 C_Y_AGE_1 C_Y_AGE_3 C_Y_AGE_5 C_Y_AGE_7
+     C_Y_AGE_9 C_Y_AGE_11 C_D_acc_M_1 C_D_acc_M_3 C_D_acc_M_7 C_D_acc_M_9
+     C_D_acc_M_11 C_M_acc_M_1 C_M_acc_M_3 C_M_acc_M_7 C_M_acc_M_9 C_M_acc_M_11
+     C_S_CIntSTP_1 C_S_CSomSTP_1 C_S_CAxDpTP_1 C_S_CWtDpTP_1 C_INCOME6L_1
+     C_INCOME6L_3 C_INCOME6L_5 C_INCOME6L_7 C_INCOME6L_9 C_INCOME6L_11 mS_SALNAC1
+     mS_SALNAC5 mS_SALNAC9 mS_SALAMY1 mS_SALAMY5 mS_SALAMY9 SV_SuIdActT_1
+     SV_SuIdActT_3 SV_SuIdActT_5 SV_SuIdActT_7 SV_SuIdActT_9 SV_SuIdActT_11
+     SV_SuIdPasT_1 SV_SuIdPasT_3 SV_SuIdPasT_5 SV_SuIdPasT_7 SV_SuIdPasT_9
+     SV_SuIdPasT_11 SV_NSSIT_1 SV_NSSIT_3 SV_NSSIT_5 SV_NSSIT_7 SV_NSSIT_9
+     SV_NSSIT_11 AGE_PM PMC_Y_AGE_1 PMC_Y_AGE_3 PMC_Y_AGE_5 PMC_Y_AGE_7 PMC_Y_AGE_9
+     PMC_Y_AGE_11 FACC_I FACC_S MACC_I MACC_S C_FACC_I C_MACC_I fSALSALt5t9_I
+     fSALSALt5t9_C fSALAMYt5t9_I fSALAMYt5t9_C fSALNACt5t9_I fSALNACt5t9_C
+     fSALSALt1t5_I fSALSALt1t5_C fSALAMYt1t5_I fSALAMYt1t5_C fSALNACt1t5_I
+     fSALNACt1t5_C fSALSALt1t9_I fSALSALt1t9_C fSALAMYt1t9_I fSALAMYt1t9_C
+     fSALNACt1t9_I fSALNACt1t9_C W_fSALSALt5t9_I W_fSALSALt5t9_C W_fSALAMYt5t9_I
+     W_fSALAMYt5t9_C W_fSALNACt5t9_I W_fSALNACt5t9_C W_fSALSALt1t5_I W_fSALSALt1t5_C
+     W_fSALAMYt1t5_I W_fSALAMYt1t5_C W_fSALNACt1t5_I W_fSALNACt1t5_C W_fSALSALt1t9_I
+     W_fSALSALt1t9_C W_fSALAMYt1t9_I W_fSALAMYt1t9_C W_fSALNACt1t9_I W_fSALNACt1t9_C
+     CW_fSALSALt5t9_I CW_fSALAMYt5t9_I CW_fSALNACt5t9_I CW_fSALSALt1t5_I
+     CW_fSALAMYt1t5_I CW_fSALNACt1t5_I CW_fSALSALt1t9_I CW_fSALAMYt1t9_I
+     CW_fSALNACt1t9_I DaccCH1 DaccCH2 MaccCH1 MaccCH2 C_DaccCH1 C_DaccCH2 C_MaccCH1
+     C_MaccCH2 LIB_T9_INC; 
+MISSING=.;
+
+
+usevariables are 
+!COVARIATES
+!C_Y_AGE_1
+!C_Y_AGE_5 
+!C_Y_AGE_9
+!Y_SEX 
+!DEFINED VARIABLES 
+mS_SALNAC1
+!mS_SALNAC5 
+mS_SALNAC9
+;
+
+
+WEIGHT=ppensity;
+CLUSTER IS FamilyID;
+STRATIFICATION = scanID_1;
+
+IDVARIABLE = NUMID;
+
+
+ANALYSIS:
+TYPE=COMPLEX;
+ESTIMATOR=MLR;
+PROCESSORS = 16;
+COVERAGE = 0;
+MODEL = NOCOVARIANCES;
+
+
+Model:
+!!!!!!!!!!!!!!!!!!!!!! MEASUREMENT MODEL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Ly1 BY mS_SALNAC1@1;
+Ly2 BY mS_SALNAC9@1;
+
+Ly0 BY Ly1@1; ! INTERCEPT SCORE 
+Lyd BY Ly2@1; !CHANGE SCORE
+
+Ly2 ON Ly1@1;
+Ly2 ON Lyd@1;
+
+
+!means;
+[mS_SALNAC1@0 mS_SALNAC9@0];
+[Ly1@0 Ly2@0];
+[Ly0* Lyd*];
+
+
+
+!variances and covariances;
+mS_SALNAC1@0; mS_SALNAC9@0;
+Ly1@0; Ly2@0;
+Ly0 WITH Lyd;
+
+!! COVARIATES 
+!Ly0 ON Y_SEX;
+!Lyd ON Y_SEX;
+
+!mS_SALNAC1 ON C_Y_AGE_1;
+!mS_SALNAC9 ON C_Y_AGE_9;
+
+
+! COVARIANCES 
+!C_Y_AGE_9 ON C_Y_AGE_1;
+
+SAVEDATA: FILE =AVG_SAL_NAC_T1T9_LCS_FULLER.txt;
+SAVE = FSCORES;
+
+output: stdyx tech1 tech3 tech4 tech8 CINTERVAL MODINDICES (ALL);
+
+
