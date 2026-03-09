@@ -1,0 +1,186 @@
+TITLE: Your title goes here
+DATA: FILE = "ABCD_SLP_DMN_SUI_RR_6.25.25.dat";
+VARIABLE: 
+NAMES = subID scanner_W1 ysex_W1 Race5_RR_W1 mean_motion_W1 dmn_dmn_W1 sleep_1_p_W1
+     sleep_1_p_W3 sds_p_ss_dims_W1 sds_p_ss_dims_W3 su_t1 sud_3_5 C_mean_motion_W1
+     C_Yagey_W1 C_dmn_dmn_W1 C_sleep_1_p_W1 C_sds_p_ss_dims_W1 PoSLpDrs_L SLPROrs_L
+     PoSLpDrs_S SLPROrs_S DMNrs_L DMNrs_S yrace Pedu_R_W1 IPR_W1_R adi_perc_W1
+     fam_dep_W1 empl_R_W1 Pmeg_R_W1 NUMID SA_1 SA_3 SA_5 SA_3_5 FamilyID SiteID
+     ppensity Y_RACE PriEdu SecEdu Gen_LATF Soc_LATF Pnat_LATF CAxDpRP_1 CAxDpRP_3
+     CAxDpRP_5 CAxDpRP_7 CAxDpRP_9 CAxDpTP_1 CAxDpTP_3 CAxDpTP_5 CAxDpTP_7 CAxDpTP_9
+     CIntSRP_1 CIntSRP_3 CIntSRP_5 CIntSRY_2 CIntSRY_3 CIntSRY_4 CIntSRY_5 CIntSTP_1
+     CIntSTP_3 CIntSTP_5 CIntSTP_7 CIntSTP_9 CORE_VD_1 CORE_VD_2 CORE_VD_3 CORE_VD_4
+     CORE_VD_5 CSomSRP_1 CSomSRP_3 CSomSRP_5 CSomSRP_7 CSomSRP_9 CSomSTP_1 CSomSTP_3
+     CSomSTP_5 CSomSTP_7 CSomSTP_9 CTotPRP_1 CTotPRP_3 CTotPRP_5 CTotPRP_7 CTotPRP_9
+     CTotPTP_1 CTotPTP_3 CTotPTP_5 CTotPTP_7 CTotPTP_9 CWtDpRP_1 CWtDpRP_3 CWtDpRP_5
+     CWtDpRP_7 CWtDpRP_9 CWtDpTP_1 CWtDpTP_3 CWtDpTP_5 CWtDpTP_7 CWtDpTP_9 INC_FND_1
+     INC_FND_5 INC_FND_7 INC_FND_9 Income_1 Marital_1 SCANman_1 SCANman_5 SCANmod_1
+     SCANmod_5 TRA_HISb_1 TRA_HISb_3 TRA_HISb_5 Y_AGE_1 Y_AGE_2 Y_AGE_3 Y_AGE_4
+     Y_AGE_5 LAG_1_3 LAG_1_5 LAG_3_5 INC_GRP C_Y_AGE1 C_Y_AGE3 C_Y_AGE5 C_CIntSRP_1
+     C_CIntSRY_2 C_LAG_1_3 C_LAG_1_5 C_LAG_3_5 HSES HSES_SE C_HSES C_CAxDpRP_1
+     C_CAxDpTP_1 C_CIntSTP_1 C_CWtDpRP_1 C_CWtDpTP_1 C_CTotPTP_1 C_CTotPRP_1 CLI_INT
+     C_pC_HSES C_pC_dmn_dmn_W1 C_pDMNrs_L C_pC_sleep_1_p_W1 C_pC_sds_p_ss_dims_W1
+     C_pPoSLpDrs_L C_pPoSLpDrs_S C_pSLPROrs_L C_pSLPROrs_S C_pC_Y_AGE1 C_pC_Y_AGE3
+     C_pC_Y_AGE5 C_pC_CAxDpRP_1 C_pC_CAxDpTP_1 C_pC_CIntSTP_1 C_pC_CIntSRP_1
+     C_pC_CWtDpRP_1 C_pC_CWtDpTP_1 C_pC_LAG_1_3 C_pC_LAG_1_5 C_pC_LAG_3_5
+     C_pC_mean_motion_W1 C_pC_CTotPTP_1 C_pC_CTotPRP_1; 
+MISSING=.;
+
+
+  usevariables are
+  !COVARIATES
+! AGE
+  C_pC_Y_AGE1
+! YOUTH SEX
+  ysex_W1
+! T1 Suicide Risk
+  su_t1 SA_1
+ !INTERNALIZING
+C_pC_CAxDpTP_1 ! C_CIntSTP_1
+!T1 SLEEP REPORTS
+!C_pC_sds_p_ss_dims_W1 ! SLEEP PROBLEMS T1
+C_pC_sleep_1_p_W1 !SLEEP DURATION PROBLEMS T1
+!SCANNER MANUFACTURER/MODEL
+  C_pC_mean_motion_W1
+  !SAVED FACTOR FOR PROBING
+  !C_pC_HSES
+  !MEDIATOR
+  C_pPoSLpDrs_L !SLEEP DURATION PROBLEMS - LOOSE
+  !C_pSLPROrs_L !SLEEP PROBLEMS - LOOSE
+  !MODERATOR
+  !C_pC_dmn_dmn_W1 ! UNADJUSTED
+  !OUTCOME
+  sud_3_5
+  SA_3_5
+  !DEFINED TERMS
+  SESH
+  LINT
+  DMN
+  ;
+
+categorical IS 
+sud_3_5
+SA_3_5
+
+; 
+
+
+!WEIGHT=ppensity;
+CLUSTER IS FamilyID;
+STRATIFICATION = scanner_W1;
+
+DEFINE:
+DMN = C_pC_dmn_dmn_W1*10;
+SESH = C_pC_HSES*10;
+LINT = (SESH*DMN);
+
+
+ANALYSIS:
+TYPE=COMPLEX;
+ESTIMATOR= WLSMV;
+BOOTSTRAP = 5000;
+
+  Model:
+
+
+
+!A PATH 
+
+C_pPoSLpDrs_L ON 
+su_t1 
+SA_1
+ysex_W1
+C_pC_Y_AGE1
+C_pC_sleep_1_p_W1
+C_pC_CAxDpTP_1
+C_pC_mean_motion_W1
+SESH (gamma1)
+DMN
+LINT(gamma2)
+;
+
+
+!B path
+sud_3_5 ON 
+C_pPoSLpDrs_L (b1)
+;
+
+SA_3_5 ON 
+C_pPoSLpDrs_L (b2)
+;
+
+!C` path 
+sud_3_5  ON 
+su_t1 
+SA_1
+ysex_W1
+C_pC_Y_AGE1
+C_pC_sleep_1_p_W1
+C_pC_CAxDpTP_1
+C_pC_mean_motion_W1
+SESH !(cdash1)
+DMN
+LINT
+;
+
+SA_3_5 ON 
+su_t1 
+SA_1
+ysex_W1
+C_pC_Y_AGE1
+C_pC_sleep_1_p_W1
+C_pC_CAxDpTP_1
+C_pC_mean_motion_W1
+SESH (cdash1)
+DMN
+LINT
+;
+
+
+C_pC_sleep_1_p_W1 WITH C_pC_CAxDpTP_1 C_pC_Y_AGE1;  
+SESH WITH  C_pC_sleep_1_p_W1 C_pC_CAxDpTP_1;
+C_pC_CAxDpTP_1 WITH ysex_W1 su_t1 SA_1 C_pC_Y_AGE1; 
+
+LINT WITH DMN SESH;
+DMN WITH SESH;
+
+! MEANS AND VARIANCES 
+
+C_pC_CAxDpTP_1
+SESH
+C_pPoSLpDrs_L
+!su_t1
+!SA_1
+C_pC_Y_AGE1
+C_pC_sleep_1_p_W1
+!ysex_W1
+DMN
+C_pC_mean_motion_W1
+LINT
+;
+
+[
+C_pC_CAxDpTP_1
+SESH
+C_pPoSLpDrs_L
+!su_t1
+!SA_1
+C_pC_Y_AGE1
+C_pC_sleep_1_p_W1
+!ysex_W1
+DMN
+C_pC_mean_motion_W1
+LINT
+];
+
+
+MODEL CONSTRAINT:
+PLOT(indirect);
+LOOP(DMN,-30, 30, 1);
+indirect = b1*(gamma1+gamma2*DMN);
+PLOT:TYPE = PLOT2;
+
+
+
+OUTPUT:   stdyx STAND  MODINDICES tech1 tech3 tech4 TECH8 cinterval(bcbootstrap);
+

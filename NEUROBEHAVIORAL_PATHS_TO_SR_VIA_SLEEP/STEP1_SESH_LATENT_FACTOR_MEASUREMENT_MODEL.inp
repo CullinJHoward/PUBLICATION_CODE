@@ -1,0 +1,57 @@
+TITLE: Socioeconomic Hardship Latent Variable Measurement Model
+DATA: FILE = "ABCD_SLP_DMN_SUI_RR_6.11.25.dat";
+VARIABLE: 
+NAMES = subID scanner_W1 ysex_W1 Race5_RR_W1 mean_motion_W1 dmn_dmn_W1 sleep_1_p_W1
+     sleep_1_p_W3 sds_p_ss_dims_W1 sds_p_ss_dims_W3 su_t1 sud_3_5 C_mean_motion_W1
+     C_Yagey_W1 C_dmn_dmn_W1 C_sleep_1_p_W1 C_sds_p_ss_dims_W1 PoSLpDrs_L SLPROrs_L
+     PoSLpDrs_S SLPROrs_S DMNrs_L DMNrs_S Q_C_H_SES yrace Pedu_R_W1 IPR_W1_R
+     adi_perc_W1 fam_dep_W1 empl_R_W1 Pmeg_R_W1 NUMID SA_1 SA_3 SA_5 SA_3_5 H_SES
+     C_H_SES FamilyID SiteID ppensity Y_RACE PriEdu SecEdu Gen_LATF Soc_LATF
+     Pnat_LATF CIntSRP_1 CIntSRP_3 CIntSRP_5 CIntSRY_2 CIntSRY_3 CIntSRY_4 CIntSRY_5
+     CORE_VD_1 CORE_VD_2 CORE_VD_3 CORE_VD_4 CORE_VD_5 INC_FND_1 INC_FND_5 INC_FND_7
+     INC_FND_9 Income_1 Marital_1 SCANman_1 SCANman_5 SCANmod_1 SCANmod_5 TRA_HISb_1
+     TRA_HISb_3 TRA_HISb_5 Y_AGE_1 Y_AGE_2 Y_AGE_3 Y_AGE_4 Y_AGE_5 LAG_1_3 LAG_1_5
+     LAG_3_5 INC_GRP C_Y_AGE1 C_Y_AGE3 C_Y_AGE5 C_CIntSRP_1 C_CIntSRY_2 C_LAG_1_3
+     C_LAG_1_5 C_LAG_3_5; 
+MISSING=.;
+
+
+USEVARIABLES = 
+Pedu_R_W1 !Low Parental Education (reverse-scored) T1 
+IPR_W1_R ! Income:Poverty (reverse-scored) T1
+adi_perc_W1 ! Area Deprivation Index T1
+fam_dep_W1 !Family Material Deprivation T1
+empl_R_W1 !Unemployment T1
+Pmeg_R_W1 !Marital Status
+;
+
+categorical are 
+empl_R_W1
+Pmeg_R_W1;
+
+stratification = scanner_W1; 
+CLUSTER IS FamilyID;
+
+IDVARIABLE = NUMID;
+
+ANALYSIS: 
+TYPE = COMPLEX;
+ESTIMATOR = WLSMV;
+STARTS = 100;
+MODEL:
+
+
+H_SES BY 
+Pedu_R_W1
+IPR_W1_R
+adi_perc_W1
+fam_dep_W1
+empl_R_W1
+Pmeg_R_W1;
+
+! Save factor scores 
+SAVEDATA: FILE = HARSH_SES_SAVE_LAT.txt;
+SAVE = FSCORES;
+
+output:sampstat standardized modindices(ALL) cinterval tech1 tech3 tech4
+tech5 tech8 svalues;
