@@ -20,11 +20,8 @@ options(max.print = 10000)
 ################################################################################
 ###################### SCALE COMPUTATION AND LONGITUDINAL CHANGE VISUALIZATION
 
-
-## SET UP A FUNCTION TO HELP COMPUTE
-
 make_scale_means <- function(data, item_sets, new_names = names(item_sets),
-                             max_missing_prop = 0.80, digits = 3,
+                             min_completion_prop = 0.80, digits = 3,
                              min_items_for_omega = 4,
                              min_complete_for_omega = 200) {
   
@@ -59,17 +56,18 @@ make_scale_means <- function(data, item_sets, new_names = names(item_sets),
     scale_df <- df[, vars, drop = FALSE]
     n_items <- length(vars)
     
-    # Missing counts for row scoring
+    # Completion / missingness for row scoring
     n_missing_items <- rowSums(is.na(scale_df))
-    prop_missing <- n_missing_items / n_items
+    n_observed_items <- n_items - n_missing_items
+    prop_observed <- n_observed_items / n_items
     
     all_missing <- n_missing_items == n_items
-    partial_rule <- prop_missing > max_missing_prop & !all_missing
+    fails_completion_rule <- prop_observed < min_completion_prop & !all_missing
     
     # Compute scale mean
     scale_mean <- rowMeans(scale_df, na.rm = TRUE)
     scale_mean[all_missing] <- NA
-    scale_mean[partial_rule] <- NA
+    scale_mean[fails_completion_rule] <- NA
     scale_mean[is.nan(scale_mean)] <- NA
     
     df[[new_var]] <- scale_mean
@@ -78,7 +76,7 @@ make_scale_means <- function(data, item_sets, new_names = names(item_sets),
     N_valid <- sum(!is.na(scale_mean))
     N_missing_total <- sum(is.na(scale_mean))
     N_missing_all_items <- sum(all_missing)
-    N_missing_partial_rule <- sum(partial_rule)
+    N_missing_completion_rule <- sum(fails_completion_rule)
     
     # Alpha
     alpha_val <- tryCatch({
@@ -122,7 +120,7 @@ make_scale_means <- function(data, item_sets, new_names = names(item_sets),
       }
     }
     
-    # Reliability flag: X if all available reliability estimates are < .70
+    # Reliability flag
     rel_vals <- c(alpha_val, omega_val)
     rel_vals <- rel_vals[!is.na(rel_vals)]
     
@@ -154,7 +152,7 @@ make_scale_means <- function(data, item_sets, new_names = names(item_sets),
       N_valid = N_valid,
       N_missing_total = N_missing_total,
       N_missing_all_items = N_missing_all_items,
-      N_missing_partial_rule = N_missing_partial_rule,
+      N_missing_completion_rule = N_missing_completion_rule,
       n_complete_for_omega = n_complete,
       stringsAsFactors = FALSE
     )
@@ -384,8 +382,8 @@ df_NEWVARS_RED <- reverse_items(df_NEWVARS_RED, reverse_vars)
 hist(df_NEWVARS_RED$R_mSchEnv_1)
 hist(df_NEWVARS_RED$mSchEnv_1)
 
-
-## CENTER AND PERSON-MEAN CENTER STUFF
+################################################################################
+############### CENTER AND WINSORIZE STUFF
 
 names(df_NEWVARS_RED)
 
@@ -446,18 +444,18 @@ SEM_DF <- df_NEWVARS_RED %>%
            "R_mNBsaf_3",    "R_mNBsaf_5",    "R_mNBsaf_7",    "R_mNBsaf_9",    
            "R_mNBsaf_11",   "R_mSchEnv_1",   "R_mSchEnv_3",  
            "R_mSchEnv_5",   "R_mSchEnv_7",   "R_mSchEnv_9",      
-           "R_HiParEdu_1",  "R_HiParEdu_3",  "R_HiParEdu_5",  "R_HiParEdu_7",  
-           "R_HiParEdu_9",  "R_HiParEdu_11"))
+           "R_HiParEdu_1", "NUMID"))
+
 
 ######################## SAVE 
-
+df <- read.csv("ABCD_HORMESIS_METHODS_SCALE_DESCRIPTIVES_FULL_PREP_STEP1.csv")
 #FULL
-write.csv(df_NEWVARS_RED,"ABCD_HORMESIS_METHODS_FULL_3.9.26.csv", row.names = F)
-prepareMplusData(df_NEWVARS_RED,"ABCD_HORMESIS_METHODS_FULL_3.9.26.dat", inpfile =T)
+write.csv(df_NEWVARS_RED,"ABCD_HORMESIS_METHODS_FULL_PREP_STEP1.csv", row.names = F)
+prepareMplusData(df_NEWVARS_RED,"ABCD_HORMESIS_METHODS_FULL_PREP_STEP1.dat", inpfile =T)
 ## REDUCED SEM 
 
-write.csv(SEM_DF,"ABCD_HORMESIS_METHODS_REDUCED_3.9.26.csv", row.names = F)
-prepareMplusData(SEM_DF,"ABCD_HORMESIS_METHODS_REDUCED_3.9.26.dat", inpfile =T)
+write.csv(SEM_DF,"ABCD_HORMESIS_METHODS_REDUCED_PREP_STEP1.csv", row.names = F)
+prepareMplusData(SEM_DF,"ABCD_HORMESIS_METHODS_REDUCED_PREP_STEP1.dat", inpfile =T)
 
 ## DESCRIPTIVES 
-write.csv(DESCRIPS, "ABCD_HORMESIS_METHODS_SCALE_DESCRIPTIVES_3.9.26.csv", row.names = F)
+write.csv(DESCRIPS, "ABCD_HORMESIS_METHODS_SCALE_DESCRIPTIVES_FULL_PREP_STEP1.csv", row.names = F)
