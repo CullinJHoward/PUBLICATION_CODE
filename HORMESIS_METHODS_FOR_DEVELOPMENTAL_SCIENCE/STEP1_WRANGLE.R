@@ -23,7 +23,7 @@ NAME_DIC <- read.csv("/home/cjh37695/ABCD_PROJECTS/G-CDS_ABCD.VARIABLE.NAME_DICT
 
 not_found <- setdiff(names(df), NAME_DIC$OG_NAME_6.1)
 
-# PRINT NOT FOUND VARIABLES
+# PRINT ANY VARIABLES NOT FOUND IN THE DATA DICTIONARY 
 
 if (length(not_found) > 0) {
   cat("The following variable names are not found in the Center Data Dictionary\n")
@@ -57,6 +57,151 @@ names(df)
 #  }
 #})
 
+
+################################################################################
+##################### NEUROIMAING INCLUSION REQUIREMENT 
+
+# INITIALIZE LISTS FOR TRACKING EXCLUSION
+qc_na_subids <- list(
+  resting_state = character(),
+  nback = character(),
+  mid = character(),
+  dmri = character()
+)
+
+qc_na_counts <- list(
+  resting_state = 0L,
+  nback = 0L,
+  mid = 0L,
+  dmri = 0L
+)
+
+# NEW: counts per wave (eventname) for each modality
+qc_na_counts_by_wave <- list(
+  resting_state = integer(),
+  nback = integer(),
+  mid = integer(),
+  dmri = integer()
+)
+
+##### Resting State functional connectivity #####
+if (any(grepl("^rs", colnames(df)))) {
+  
+  # Rows explicitly failing QC (not included, and not missing)
+  affected_rows <- df$rs_INC != 1 & !is.na(df$rs_INC)
+  
+  # Log excluded IDs + total count
+  qc_na_subids$resting_state <- df$subID[affected_rows]
+  qc_na_counts$resting_state <- sum(affected_rows)
+  
+  # NEW: excluded count per wave
+  qc_na_counts_by_wave$resting_state <- table(df$eventname[affected_rows])
+  
+  # Add exclusion flag + total count column(s)
+  df <- df %>%
+    mutate(
+      rs_excluded   = affected_rows,
+      rs_excluded_n = qc_na_counts$resting_state
+    ) %>%
+    mutate(across(
+      starts_with("rs"),
+      ~case_when(
+        rs_INC != 1 ~ NA_real_,
+        TRUE ~ .
+      )
+    ))
+}
+
+##### DTI Measures #####
+if (any(grepl("^dti", colnames(df)))) {
+  
+  # Rows explicitly failing QC (not included, and not missing)
+  affected_rows_dti <- df$dti_INC != 1 & !is.na(df$dti_INC)
+  
+  # Log excluded IDs + total count
+  qc_na_subids$dmri <- df$subID[affected_rows_dti]
+  qc_na_counts$dmri <- sum(affected_rows_dti)
+  
+  # NEW: excluded count per wave
+  qc_na_counts_by_wave$dmri <- table(df$eventname[affected_rows_dti])
+  
+  # Add exclusion flag + total count column(s)
+  df <- df %>%
+    mutate(
+      dti_excluded   = affected_rows_dti,
+      dti_excluded_n = qc_na_counts$dmri
+    ) %>%
+    mutate(across(
+      starts_with("dti"),
+      ~case_when(
+        dti_INC != 1 ~ NA_real_,
+        TRUE ~ .
+      )
+    ))
+}
+
+# TODO: replicate the same pattern for NBACK / MID once those blocks are implemented
+names(df)
+
+################################################################################
+
+## EXCLUSION SUMMARY 
+cat("\nQC Exclusions Summary (rows made NA)\n-----------------------------------\n")
+
+summarize_qc_wave <- function(label, total_n, by_wave_tbl) {
+  cat(sprintf("%s: %d excluded\n", label, total_n))
+  if (!is.null(by_wave_tbl) && length(by_wave_tbl) > 0) {
+    cat("  By wave:\n")
+    # print as "wave: n" lines, sorted by wave name
+    by_wave_tbl <- by_wave_tbl[order(names(by_wave_tbl))]
+    for (w in names(by_wave_tbl)) {
+      cat(sprintf("   - %s: %d\n", w, as.integer(by_wave_tbl[[w]])))
+    }
+  } else {
+    cat("  By wave: none\n")
+  }
+}
+
+summarize_qc_wave(
+  "fMRI Resting State",
+  qc_na_counts$resting_state,
+  qc_na_counts_by_wave$resting_state
+)
+
+summarize_qc_wave(
+  "fMRI NBACK",
+  qc_na_counts$nback,
+  qc_na_counts_by_wave$nback
+)
+
+summarize_qc_wave(
+  "fMRI MID",
+  qc_na_counts$mid,
+  qc_na_counts_by_wave$mid
+)
+
+summarize_qc_wave(
+  "dMRI (DTI/RSI)",
+  qc_na_counts$dmri,
+  qc_na_counts_by_wave$dmri
+)
+
+
+### DROP IMAGING QC VARIABLES
+
+qc_drop_patterns <- c(
+  "excluded",   # drop anything with "excluded" anywhere in the name
+  "_INC$"       # drop inclusion flags like rs_INC, nb_INC, etc. (ends with _INC)
+  # "^imgincl_", # optionally re-add if you still want these gone too
+  # "^[tr]fmri_.*meanmotion$"  # optionally re-add motion vars
+)
+
+# REMOVE WORKING VARIABLES 
+
+df <- df %>%
+  dplyr::select(-dplyr::matches(paste(qc_drop_patterns, collapse = "|"), ignore.case = TRUE))
+
+names(df)
 
 ################################################################################
 #####################  SUBSET INTO WAVES 
@@ -117,9 +262,9 @@ all_dats <- lapply(all_dats, function(df) {
 })
 
 # REMOVE INVARIANT VARIABLES FROM LATTER WAVES
-
+names(df)
 ## LIST THEM 
-vars_to_remove <- c("SiteID", "Y_SEX", "FamilyID", "Y_HISP", "ppensity") # ADD VARIABLES AS NECESSARY
+vars_to_remove <- c("SiteID", "Y_SEX", "FamilyID", "Y_HISP", "ppensity", "INCOME6L" ,"scanID", "SCANman", "SCANmod") # ADD VARIABLES AS NECESSARY
 
 ## REMOVE THEM 
 if (length(all_dats) > 1) {
@@ -139,7 +284,7 @@ for (i in seq_along(WAVE_DFS)) {
 
 # LIST OF VARIABLES THAT DO NOT NEED WAVE SPECIFIERS
 no_wave_vars <- c("subID", "SiteID", "Y_SEX", "FamilyID", "ppensity", 
-                  "Y_HISP") # ADD AS NEEDED 
+                  "Y_HISP", "INCOME6L" ,"scanID", "SCANman", "SCANmod") # ADD AS NEEDED 
 
 # MAP WAVES TO NUMBERS 
 wave_map <- c(
@@ -353,13 +498,24 @@ print(names(ALL_WAVES_REORDER))
 ################################################################################
 ##################### SAVE DATA 
 
+FULL <- ALL_WAVES_REORDER
+
 # IMPUTE MISSING PPESNITY VALUE WITH THE MEAN 
-ALL_WAVES_REORDER$ppensity[ALL_WAVES_REORDER$subID == "sub-P2G0PXCM"
+FULL$ppensity[FULL$subID == "sub-P2G0PXCM"
 ] <- 691.3902
 
-FILENAME <- "ABCD_HORM_METH_12.29.25"
+# FILL IN ANY MISSING FAMILY IDs WITH SEQUENTIAL VALUES 
+# get number missing 
+n_missing <- sum(is.na(FULL$FamilyID))
 
-write.csv(ALL_WAVES_REORDER, paste0(FILENAME, ".csv"), row.names=FALSE, na="")
+# Fill NAs with sequential values after the max
+FULL$FamilyID[is.na(FULL$FamilyID)] <-
+  seq(from = max(FULL$FamilyID, na.rm = TRUE) + 1,
+      length.out = n_missing)
+
+FILENAME <- "ABCD_HORM_METH_3.30.26"
+
+write.csv(FULL, paste0(FILENAME, ".csv"), row.names=FALSE, na="")
 
 #prepareMplusData(ALL_WAVES_REORDER,"ABCD_HORM_METH_12.29.25.dat")
 

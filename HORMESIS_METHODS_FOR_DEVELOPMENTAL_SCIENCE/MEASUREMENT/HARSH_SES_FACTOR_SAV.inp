@@ -1,0 +1,76 @@
+TITLE: Your title goes here
+DATA:
+  FILE = "ABCD_HORM_METH_SEM_MEASUREMEMT_4.24.26.dat";
+VARIABLE: 
+NAMES = subID SiteID FamilyID ppensity SCANman SCANmod scanID NUMID INCOME6L Y_HISP
+     Y_SEX HiParEdu_1 MarWrkSt_1 HiParEdu_1R YHghtm_1 YHghtm_3 YHghtm_5 YHghtm_7
+     YHghtm_9 YHghtm_11 YWghtm_1 YWghtm_3 YWghtm_5 YWghtm_7 YWghtm_9 YWghtm_11
+     Y_AGE_1 Y_AGE_3 Y_AGE_5 Y_AGE_7 Y_AGE_9 Y_AGE_11 PRBlPov_1 PRCrowd_1 PRLowEd_1
+     PRUnEmp_1 SocMob_1R CAggSTP_1 CAggSTP_3 CAggSTP_5 CAggSTP_7 CAggSTP_9
+     CAggSTP_11 CAttSTP_1 CAttSTP_3 CAttSTP_5 CAttSTP_7 CAttSTP_9 CAttSTP_11
+     CAxDpTP_1 CAxDpTP_3 CAxDpTP_5 CAxDpTP_7 CAxDpTP_9 CAxDpTP_11 CExtSTP_1
+     CExtSTP_3 CExtSTP_5 CExtSTP_7 CExtSTP_9 CExtSTP_11 CIntSTP_1 CIntSTP_3
+     CIntSTP_5 CIntSTP_7 CIntSTP_9 CIntSTP_11 CRlBrMP_1 CRlBrMP_3 CRlBrMP_5
+     CRlBrMP_7 CRlBrMP_9 CRlBrMP_11 CSocSTP_1 CSocSTP_3 CSocSTP_5 CSocSTP_7
+     CSocSTP_9 CSocSTP_11 CSomSTP_1 CSomSTP_3 CSomSTP_5 CSomSTP_7 CSomSTP_9
+     CSomSTP_11 CThtSTP_1 CThtSTP_3 CThtSTP_5 CThtSTP_7 CThtSTP_9 CThtSTP_11
+     CWtDpTP_1 CWtDpTP_3 CWtDpTP_5 CWtDpTP_7 CWtDpTP_9 CWtDpTP_11 DysBpM_5 DysBpM_7
+     DysBpM_9 DysBpM_11 SysBpM_5 SysBpM_7 SysBpM_9 SysBpM_11 mNgUrg_1 mNgUrg_5
+     mNgUrg_9 mPsUrg_1 mPsUrg_5 mPsUrg_9 mPers_1 mPers_5 mPers_9 mPlan_1 mPlan_5
+     mPlan_9 mSenSe_1 mSenSe_5 mSenSe_9 mAttune_7 mAttune_9 mAttune_11 mDist_7
+     mDist_9 mDist_11 mEmoSup_7 mEmoSup_9 mEmoSup_11 mReApp_7 mReApp_9 mReApp_11
+     WP_mNBdang_1 WP_mNBdang_3 WP_mNBdang_5 WP_mNBdang_7 WP_mNBdang_9 WP_mNBdang_11
+     WP_mSchAdv_1 WP_mSchAdv_3 WP_mSchAdv_5 WP_mSchAdv_7 WP_mSchAdv_9 WP_FAMCONY_1
+     WP_FAMCONY_3 WP_FAMCONY_5 WP_FAMCONY_7 WP_FAMCONY_9 WP_FAMCONY_11 WP_mLkCogEn
+     WP_dtiMnMOT_1 WP_dtiMnMOT_5 WP_dtiMnMOT_9 WP_dti_FA_CNCG_M_1 WP_dti_FA_CNCG_M_5
+     WP_dti_FA_CNCG_M_9 WP_dti_FA_ILF_M_1 WP_dti_FA_ILF_M_5 WP_dti_FA_ILF_M_9
+     WP_dti_FA_SLF_M_1 WP_dti_FA_SLF_M_5 WP_dti_FA_SLF_M_9 WP_dti_FA_UNC_M_1
+     WP_dti_FA_UNC_M_5 WP_dti_FA_UNC_M_9 WP_dti_FA_iFSF_M_1 WP_dti_FA_iFSF_M_5
+     WP_dti_FA_iFSF_M_9 WP_dti_FA_pSLF_M_1 WP_dti_FA_pSLF_M_5 WP_dti_FA_pSLF_M_9
+     WP_dti_FA_tSLF_M_1 WP_dti_FA_tSLF_M_5 WP_dti_FA_tSLF_M_9 WP_dts_FA_ALL_1
+     WP_dts_FA_ALL_5 WP_dts_FA_ALL_9 WP_mPmon_1 WP_mPmon_3 WP_mPmon_5 WP_mPmon_7
+     WP_mPmon_9 WP_mPmon_11 WP_mPNH_5 WP_mPNH_7 WP_mPNH_9 PUBlev_1 PUBlev_3 PUBlev_5
+     PUBlev_7 PUBlev_9 PUBlev_11; 
+MISSING=.;
+
+
+usevariables are 
+SocMob_1R
+PRCrowd_1
+PRLowEd_1
+PRUnEmp_1
+PRBlPov_1
+HiParEdu_1R
+;
+
+
+WEIGHT=ppensity;
+CLUSTER IS FamilyID;
+STRATIFICATION = SiteID;
+
+IDVARIABLE = NUMID;
+
+ANALYSIS:
+TYPE=COMPLEX;
+
+Model:
+
+HSES BY 
+SocMob_1R*
+PRCrowd_1
+PRLowEd_1
+PRUnEmp_1
+PRBlPov_1
+HiParEdu_1R
+;
+
+PRCrowd_1 WITH PRLowEd_1;
+
+HSES@1;
+
+
+SAVEDATA: FILE =HARSH_SES_FACTOR.txt;
+SAVE = FSCORES;
+
+output: stdyx tech1 tech3 tech4 MODINDICES CINTERVAL;
+
