@@ -1241,26 +1241,36 @@ ggsave(
 
 ############### density plot and region mapping 
 
-# moderator ROS starts at -.25 SD (m = -.13) 
-# the threshold at this point of the moderator is x = 1.58 (used all time criteria @ -.5 SD)
+# moderator appears to take effect at about .5 SD above the mean (.255)
 names(df_vars)
 
 #rescale to a 0 - 100 scale for plotting
 df_vars$M_SchAdvRS <- df_vars$M_SchAdv*10
 
-## locate how many people are: a) below -.13 on the moderator (i.e., in ROS)
-## and b) at less than .932 on school adversity (hormetic inflection at this level)
+## locate how many people are: a) below .25 on the moderator (i.e., in ROS)
+## and b) at less than 1.58 on school adversity (hormetic inflection)
 
-ROS <- subset(df_vars, GMC_Ptemp113 < 0)
-# n = 3760 (32%)
+ROS <- subset(df_vars, GMC_Ptemp113 < .25)
+5347/11868
+11868-5347
+# n = 5347 (45%)
 ROS_HORM <- subset(ROS, M_SchAdvRS < 15.8) #i.e., 1.58 x 10 to be on the same scale 
-#n = 818 (7%, 22% ROS)
+1225/11868
+1225/5347
+#n = 1,225 (23% ROS, 10% Overall)
 ROS_STG <- subset(ROS, M_SchAdvRS < 5.60) #i.e., .556 (from stage 1) x 10  
-# n = 77 (1%, 2% of ROS)
+123/11868
+123/5347
+# n = 123 (1% overall, 2% of ROS)
 ROS_BUFF <- subset(ROS, M_SchAdvRS > 5.60 & M_SchAdvRS < 15.80)  
-#n = 741 (6%, 20% ROS)
+1102/11868
+1102/5347
+#n = 741 (9% overall, 21% ROS)
 
 
+(1102+123)/5347
+(5347-(1102+123))/5347
+(5347-(1102+123))
 ###### density histogram
 
 
