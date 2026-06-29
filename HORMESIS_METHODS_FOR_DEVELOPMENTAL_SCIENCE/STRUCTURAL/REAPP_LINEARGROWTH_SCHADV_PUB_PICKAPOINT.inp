@@ -1,0 +1,552 @@
+TITLE: Your title goes here
+DATA:
+  FILE = "ABCD_HORM_METH_SEM_STRUCTRUAL_MOD_5.25.26.dat";
+VARIABLE: 
+NAMES = subID SiteID FamilyID ppensity SCANman SCANmod scanID NUMID INCOME6L Y_HISP
+     Y_SEX HiParEdu_1 MarWrkSt_1 HiParEdu_1R YHghtm_1 YHghtm_3 YHghtm_5 YHghtm_7
+     YHghtm_9 YHghtm_11 YWghtm_1 YWghtm_3 YWghtm_5 YWghtm_7 YWghtm_9 YWghtm_11
+     Y_AGE_1 Y_AGE_3 Y_AGE_5 Y_AGE_7 Y_AGE_9 Y_AGE_11 PRBlPov_1 PRCrowd_1 PRLowEd_1
+     PRUnEmp_1 SocMob_1R CAggSTP_1 CAggSTP_3 CAggSTP_5 CAggSTP_7 CAggSTP_9
+     CAggSTP_11 CAttSTP_1 CAttSTP_3 CAttSTP_5 CAttSTP_7 CAttSTP_9 CAttSTP_11
+     CAxDpTP_1 CAxDpTP_3 CAxDpTP_5 CAxDpTP_7 CAxDpTP_9 CAxDpTP_11 CExtSTP_1
+     CExtSTP_3 CExtSTP_5 CExtSTP_7 CExtSTP_9 CExtSTP_11 CIntSTP_1 CIntSTP_3
+     CIntSTP_5 CIntSTP_7 CIntSTP_9 CIntSTP_11 CRlBrMP_1 CRlBrMP_3 CRlBrMP_5
+     CRlBrMP_7 CRlBrMP_9 CRlBrMP_11 CSocSTP_1 CSocSTP_3 CSocSTP_5 CSocSTP_7
+     CSocSTP_9 CSocSTP_11 CSomSTP_1 CSomSTP_3 CSomSTP_5 CSomSTP_7 CSomSTP_9
+     CSomSTP_11 CThtSTP_1 CThtSTP_3 CThtSTP_5 CThtSTP_7 CThtSTP_9 CThtSTP_11
+     CWtDpTP_1 CWtDpTP_3 CWtDpTP_5 CWtDpTP_7 CWtDpTP_9 CWtDpTP_11 mNgUrg_1 mNgUrg_5
+     mNgUrg_9 mPsUrg_1 mPsUrg_5 mPsUrg_9 mPers_1 mPers_5 mPers_9 mPlan_1 mPlan_5
+     mPlan_9 mSenSe_1 mSenSe_5 mSenSe_9 mAttune_7 mAttune_9 mAttune_11 mDist_7
+     mDist_9 mDist_11 mEmoSup_7 mEmoSup_9 mEmoSup_11 mReApp_7 mReApp_9 mReApp_11
+     WP_mNBdang_1 WP_mNBdang_3 WP_mNBdang_5 WP_mNBdang_7 WP_mNBdang_9 WP_mNBdang_11
+     WP_mSchAdv_1 WP_mSchAdv_3 WP_mSchAdv_5 WP_mSchAdv_7 WP_mSchAdv_9 WP_FAMCONY_1
+     WP_FAMCONY_3 WP_FAMCONY_5 WP_FAMCONY_7 WP_FAMCONY_9 WP_FAMCONY_11 WP_mLkCogEn
+     WP_dti_FA_CNCG_M_1 WP_dti_FA_CNCG_M_5 WP_dti_FA_CNCG_M_9 WP_dti_FA_ILF_M_1
+     WP_dti_FA_ILF_M_5 WP_dti_FA_ILF_M_9 WP_dti_FA_SLF_M_1 WP_dti_FA_SLF_M_5
+     WP_dti_FA_SLF_M_9 WP_dti_FA_UNC_M_1 WP_dti_FA_UNC_M_5 WP_dti_FA_UNC_M_9
+     WP_dti_FA_iFSF_M_1 WP_dti_FA_iFSF_M_5 WP_dti_FA_iFSF_M_9 WP_dti_FA_pSLF_M_1
+     WP_dti_FA_pSLF_M_5 WP_dti_FA_pSLF_M_9 WP_dti_FA_tSLF_M_1 WP_dti_FA_tSLF_M_5
+     WP_dti_FA_tSLF_M_9 WP_dts_FA_ALL_1 WP_dts_FA_ALL_5 WP_dts_FA_ALL_9 fHSES
+     WP_fHSES LMC_Y_AGE_1 LMC_Y_AGE_3 LMC_Y_AGE_5 LMC_Y_AGE_7 LMC_Y_AGE_9
+     LMC_Y_AGE_11 GMC_WP_dtiMnMOT_1 GMC_WP_dtiMnMOT_5 GMC_WP_dtiMnMOT_9
+     LMC_WP_dts_FA_ALL_1 LMC_WP_dts_FA_ALL_5 LMC_WP_dts_FA_ALL_9 GMC_INCOME6L
+     GMC_HiParEdu_1 LMC_PUBlev_1 LMC_PUBlev_3 LMC_PUBlev_5 LMC_PUBlev_7 LMC_PUBlev_9
+     LMC_PUBlev_11 PMC_LMC_DysBpM_5 PMC_LMC_DysBpM_7 PMC_LMC_DysBpM_9
+     PMC_LMC_DysBpM_11 PMC_LMC_SysBpM_5 PMC_LMC_SysBpM_7 PMC_LMC_SysBpM_9
+     PMC_LMC_SysBpM_11 PMC_LMC_WP_mPmon_1 PMC_LMC_WP_mPmon_3 PMC_LMC_WP_mPmon_5
+     PMC_LMC_WP_mPmon_7 PMC_LMC_WP_mPmon_9 PMC_LMC_WP_mPmon_11 PMC_LMC_WP_mPNH_5
+     PMC_LMC_WP_mPNH_7 PMC_LMC_WP_mPNH_9 PMC_S1_SCHnURG_1 PMC_S1_SCHnURG_3
+     PMC_S1_SCHnURG_5 PMC_S1_SCHnURG_7 PMC_S1_SCHnURG_9 PMC_S2_SCHnURG_1
+     PMC_S2_SCHnURG_3 PMC_S2_SCHnURG_5 PMC_S2_SCHnURG_7 PMC_S2_SCHnURG_9
+     PMC_S1_FCONnURG_1 PMC_S1_FCONnURG_3 PMC_S1_FCONnURG_5 PMC_S1_FCONnURG_7
+     PMC_S1_FCONnURG_9 PMC_S1_FCONnURG_11 PMC_S2_FCONnURG_1 PMC_S2_FCONnURG_3
+     PMC_S2_FCONnURG_5 PMC_S2_FCONnURG_7 PMC_S2_FCONnURG_9 PMC_S2_FCONnURG_11
+     PMC_S1_NBSFnURG_1 PMC_S1_NBSFnURG_3 PMC_S1_NBSFnURG_5 PMC_S1_NBSFnURG_7
+     PMC_S1_NBSFnURG_9 PMC_S1_NBSFnURG_11 PMC_S2_NBSFnURG_1 PMC_S2_NBSFnURG_3
+     PMC_S2_NBSFnURG_5 PMC_S2_NBSFnURG_7 PMC_S2_NBSFnURG_9 PMC_S2_NBSFnURG_11
+     PMC_S1_SCHpURG_1 PMC_S1_SCHpURG_3 PMC_S1_SCHpURG_5 PMC_S1_SCHpURG_7
+     PMC_S1_SCHpURG_9 PMC_S2_SCHpURG_1 PMC_S2_SCHpURG_3 PMC_S2_SCHpURG_5
+     PMC_S2_SCHpURG_7 PMC_S2_SCHpURG_9 PMC_S1_FCONpURG_1 PMC_S1_FCONpURG_3
+     PMC_S1_FCONpURG_5 PMC_S1_FCONpURG_7 PMC_S1_FCONpURG_9 PMC_S1_FCONpURG_11
+     PMC_S2_FCONpURG_1 PMC_S2_FCONpURG_3 PMC_S2_FCONpURG_5 PMC_S2_FCONpURG_7
+     PMC_S2_FCONpURG_9 PMC_S2_FCONpURG_11 PMC_S1_NBSFpURG_1 PMC_S1_NBSFpURG_3
+     PMC_S1_NBSFpURG_5 PMC_S1_NBSFpURG_7 PMC_S1_NBSFpURG_9 PMC_S1_NBSFpURG_11
+     PMC_S2_NBSFpURG_1 PMC_S2_NBSFpURG_3 PMC_S2_NBSFpURG_5 PMC_S2_NBSFpURG_7
+     PMC_S2_NBSFpURG_9 PMC_S2_NBSFpURG_11 PMC_S1_SCHattn_1 PMC_S1_SCHattn_3
+     PMC_S1_SCHattn_5 PMC_S1_SCHattn_7 PMC_S1_SCHattn_9 PMC_S2_SCHattn_1
+     PMC_S2_SCHattn_3 PMC_S2_SCHattn_5 PMC_S2_SCHattn_7 PMC_S2_SCHattn_9
+     PMC_S1_FCONattn_1 PMC_S1_FCONattn_3 PMC_S1_FCONattn_5 PMC_S1_FCONattn_7
+     PMC_S1_FCONattn_9 PMC_S1_FCONattn_11 PMC_S2_FCONattn_1 PMC_S2_FCONattn_3
+     PMC_S2_FCONattn_5 PMC_S2_FCONattn_7 PMC_S2_FCONattn_9 PMC_S2_FCONattn_11
+     PMC_S1_NBSFattn_1 PMC_S1_NBSFattn_3 PMC_S1_NBSFattn_5 PMC_S1_NBSFattn_7
+     PMC_S1_NBSFattn_9 PMC_S1_NBSFattn_11 PMC_S2_NBSFattn_1 PMC_S2_NBSFattn_3
+     PMC_S2_NBSFattn_5 PMC_S2_NBSFattn_7 PMC_S2_NBSFattn_9 PMC_S2_NBSFattn_11
+     PMC_S1_SCHdist_1 PMC_S1_SCHdist_3 PMC_S1_SCHdist_5 PMC_S1_SCHdist_7
+     PMC_S1_SCHdist_9 PMC_S2_SCHdist_1 PMC_S2_SCHdist_3 PMC_S2_SCHdist_5
+     PMC_S2_SCHdist_7 PMC_S2_SCHdist_9 PMC_S1_FCONdist_1 PMC_S1_FCONdist_3
+     PMC_S1_FCONdist_5 PMC_S1_FCONdist_7 PMC_S1_FCONdist_9 PMC_S1_FCONdist_11
+     PMC_S2_FCONdist_1 PMC_S2_FCONdist_3 PMC_S2_FCONdist_5 PMC_S2_FCONdist_7
+     PMC_S2_FCONdist_9 PMC_S2_FCONdist_11 PMC_S1_NBSFdist_1 PMC_S1_NBSFdist_3
+     PMC_S1_NBSFdist_5 PMC_S1_NBSFdist_7 PMC_S1_NBSFdist_9 PMC_S1_NBSFdist_11
+     PMC_S2_NBSFdist_1 PMC_S2_NBSFdist_3 PMC_S2_NBSFdist_5 PMC_S2_NBSFdist_7
+     PMC_S2_NBSFdist_9 PMC_S2_NBSFdist_11 PMC_S1_SCHemosup_1 PMC_S1_SCHemosup_3
+     PMC_S1_SCHemosup_5 PMC_S1_SCHemosup_7 PMC_S1_SCHemosup_9 PMC_S2_SCHemosup_1
+     PMC_S2_SCHemosup_3 PMC_S2_SCHemosup_5 PMC_S2_SCHemosup_7 PMC_S2_SCHemosup_9
+     PMC_S1_FCONemosup_1 PMC_S1_FCONemosup_3 PMC_S1_FCONemosup_5 PMC_S1_FCONemosup_7
+     PMC_S1_FCONemosup_9 PMC_S1_FCONemosup_11 PMC_S2_FCONemosup_1
+     PMC_S2_FCONemosup_3 PMC_S2_FCONemosup_5 PMC_S2_FCONemosup_7 PMC_S2_FCONemosup_9
+     PMC_S2_FCONemosup_11 PMC_S1_NBSFemosup_1 PMC_S1_NBSFemosup_3
+     PMC_S1_NBSFemosup_5 PMC_S1_NBSFemosup_7 PMC_S1_NBSFemosup_9
+     PMC_S1_NBSFemosup_11 PMC_S2_NBSFemosup_1 PMC_S2_NBSFemosup_3
+     PMC_S2_NBSFemosup_5 PMC_S2_NBSFemosup_7 PMC_S2_NBSFemosup_9
+     PMC_S2_NBSFemosup_11 PMC_S1_SCHreapp_1 PMC_S1_SCHreapp_3 PMC_S1_SCHreapp_5
+     PMC_S1_SCHreapp_7 PMC_S1_SCHreapp_9 PMC_S2_SCHreapp_1 PMC_S2_SCHreapp_3
+     PMC_S2_SCHreapp_5 PMC_S2_SCHreapp_7 PMC_S2_SCHreapp_9 PMC_S1_FCONreapp_1
+     PMC_S1_FCONreapp_3 PMC_S1_FCONreapp_5 PMC_S1_FCONreapp_7 PMC_S1_FCONreapp_9
+     PMC_S1_FCONreapp_11 PMC_S2_FCONreapp_1 PMC_S2_FCONreapp_3 PMC_S2_FCONreapp_5
+     PMC_S2_FCONreapp_7 PMC_S2_FCONreapp_9 PMC_S2_FCONreapp_11 PMC_S1_NBSFreapp_1
+     PMC_S1_NBSFreapp_3 PMC_S1_NBSFreapp_5 PMC_S1_NBSFreapp_7 PMC_S1_NBSFreapp_9
+     PMC_S1_NBSFreapp_11 PMC_S2_NBSFreapp_1 PMC_S2_NBSFreapp_3 PMC_S2_NBSFreapp_5
+     PMC_S2_NBSFreapp_7 PMC_S2_NBSFreapp_9 PMC_S2_NBSFreapp_11 PMC_WP_FAMCONY_1
+     PMC_WP_FAMCONY_3 PMC_WP_FAMCONY_5 PMC_WP_FAMCONY_7 PMC_WP_FAMCONY_9
+     PMC_WP_FAMCONY_11 PMC_WP_mSchAdv_1 PMC_WP_mSchAdv_3 PMC_WP_mSchAdv_5
+     PMC_WP_mSchAdv_7 PMC_WP_mSchAdv_9 PMC_WP_mNBdang_1 PMC_WP_mNBdang_3
+     PMC_WP_mNBdang_5 PMC_WP_mNBdang_7 PMC_WP_mNBdang_9 PMC_WP_mNBdang_11
+     S1_HSESnURG S2_HSESnURG S1_CogEnnURG S2_CogEnnURG S1_HSESpURG S2_HSESpURG
+     S1_CogEnpURG S2_CogEnpURG S1_HSESattn S2_HSESattn S1_CogEnattn S2_CogEnattn
+     S1_HSESdist S2_HSESdist S1_CogEndist S2_CogEndist S1_HSESemosup S2_HSESemosup
+     S1_CogEnemosup S2_CogEnemosup S1_HSESreapp S2_HSESreapp S1_CogEnreapp
+     S2_CogEnreapp mLMC_DysBpM mLMC_SysBpM mLMC_mPmon mLMC_mPNH MS1_SCHnURG
+     MS2_SCHnURG MS1_FCONnURG MS2_FCONnURG MS1_NBSFnURG MS2_NBSFnURG MS1_SCHpURG
+     MS2_SCHpURG MS1_FCONpURG MS2_FCONpURG MS1_NBSFpURG MS2_NBSFpURG MS1_SCHattn
+     MS2_SCHattn MS1_FCONattn MS2_FCONattn MS1_NBSFattn MS2_NBSFattn MS1_SCHdist
+     MS2_SCHdist MS1_FCONdist MS2_FCONdist MS1_NBSFdist MS2_NBSFdist MS1_SCHemosup
+     MS2_SCHemosup MS1_FCONemosup MS2_FCONemosup MS1_NBSFemosup MS2_NBSFemosup
+     MS1_SCHreapp MS2_SCHreapp MS1_FCONreapp MS2_FCONreapp MS1_NBSFreapp
+     MS2_NBSFreapp M_FCON M_SchAdv M_NBdang Ptemp113 GMC_Ptemp113; 
+MISSING=.;
+
+  usevariables are
+!COVARIATES 
+LMC_Y_AGE_7 LMC_Y_AGE_9 LMC_Y_AGE_11
+Y_SEX
+INCOME6L
+LMC_PUBlev_3
+!ADVERSITY
+!!MEAN
+MS1_SCHreapp 
+MS2_SCHreapp
+!VARYING
+PMC_S1_SCHreapp_7 PMC_S2_SCHreapp_7
+PMC_S1_SCHreapp_9 PMC_S2_SCHreapp_9
+!REGULATION
+mReApp_7 mReApp_9 mReApp_11
+!MODERATOR
+!Defined terms
+GMC_Ptemp113
+S1int
+S2int
+
+  ;
+
+
+
+
+  WEIGHT=ppensity;
+  CLUSTER IS FamilyID;
+  STRATIFICATION = SiteID;
+
+  DEFINE:
+  CENTER
+  INCOME6L
+  Y_SEX
+  LMC_PUBlev_3
+  (GRANDMEAN);
+
+  !INTERACTION TERMS
+  S1int = MS1_SCHreapp*GMC_Ptemp113;
+  S2int = MS2_SCHreapp*GMC_Ptemp113;
+
+
+  ANALYSIS:
+  TYPE=COMPLEX;
+
+  Model:
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!! Reappraisal 
+
+I S| mReApp_7@0 mReApp_9@1 mReApp_11@2;
+
+!Estimating latent mean, variance and covariance;
+! latent means
+  [I] (mu_i);
+  [S] (mu_s);
+
+  I (var_i);
+  S (var_s);
+  I WITH S;
+
+[mReApp_7-mReApp_11@0];
+mReApp_7-mReApp_11;! (theta);
+
+
+!Time-varying covariates 
+mReApp_7 ON LMC_Y_AGE_7 ;
+mReApp_9 ON LMC_Y_AGE_9 ;
+mReApp_11 ON LMC_Y_AGE_11 ;
+
+!time-invariant covariate
+I S ON INCOME6L Y_SEX;
+
+
+! means and variances
+INCOME6L
+LMC_Y_AGE_7
+LMC_Y_AGE_9
+LMC_Y_AGE_11
+;
+
+[INCOME6L
+LMC_Y_AGE_7
+LMC_Y_AGE_9
+LMC_Y_AGE_11]
+;
+
+!PDIFF ON 
+!LMC_Y_AGE_7
+!LMC_Y_AGE_9
+!LMC_Y_AGE_11
+!;
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!!! STRUCTURAL MODEL 
+
+!TIME-INVARIANT EFFECTS
+
+  I ON
+    INCOME6L      (i_c2)
+    MS1_SCHreapp  (i_x1)
+    MS2_SCHreapp  (i_x2)
+    LMC_PUBlev_3
+    GMC_Ptemp113       (i_m)
+    S1int       (i_x1m)
+    S2int       (i_x2m)
+
+    ;
+
+  S ON
+    INCOME6L     (s_c2)
+    MS1_SCHreapp  (s_x1)
+    MS2_SCHreapp  (s_x2)
+    LMC_PUBlev_3
+    GMC_Ptemp113       (s_m)
+    S1int       (s_x1m)
+    S2int       (s_x2m)
+
+    ;
+
+
+
+!TIME-VARYING EFFECTS 
+mReApp_7 ON   PMC_S1_SCHreapp_7 PMC_S2_SCHreapp_7  ;
+mReApp_9 ON  PMC_S1_SCHreapp_9 PMC_S2_SCHreapp_9  ;
+!mReApp_11 ON   ;
+
+!!!!!! COVARIANCES
+
+!!INVARIANT COVARIANCES
+MS1_SCHreapp WITH MS2_SCHreapp INCOME6L  GMC_Ptemp113;
+MS2_SCHreapp WITH INCOME6L  GMC_Ptemp113;
+INCOME6L WITH GMC_Ptemp113;
+
+MS1_SCHreapp MS2_SCHreapp GMC_Ptemp113 ON Y_SEX;
+S1int S2int  ON Y_SEX GMC_Ptemp113;
+
+
+S1int WITH MS1_SCHreapp MS2_SCHreapp GMC_Ptemp113;
+S2int WITH MS2_SCHreapp MS1_SCHreapp GMC_Ptemp113;
+S1int WITH S2int;
+
+GMC_Ptemp113 ON LMC_PUBlev_3 Y_SEX;
+
+!!TIME-VARYING COVARIANCES
+PMC_S1_SCHreapp_7 WITH PMC_S2_SCHreapp_7 ;
+PMC_S1_SCHreapp_9 WITH PMC_S2_SCHreapp_9;
+
+MS1_SCHreapp WITH 
+  PMC_S1_SCHreapp_7 
+  PMC_S2_SCHreapp_7
+  PMC_S1_SCHreapp_9 
+  PMC_S2_SCHreapp_9;
+
+MS2_SCHreapp WITH 
+  PMC_S1_SCHreapp_7 
+  PMC_S2_SCHreapp_7
+  PMC_S1_SCHreapp_9 
+  PMC_S2_SCHreapp_9;
+
+MODEL CONSTRAINT:
+
+  NEW(
+    ! =====================================================
+    ! Moderated pick-a-point trajectories
+    ! Adversity: centered/spline-coded school adversity
+    ! Moderator: DPUB/PDIFF, probed at -1 SD, mean, +1 SD
+    !
+    ! Landmark X values are on the same centered scale used
+    ! for MS1_SCHreapp and MS2_SCHreapp.
+    ! =====================================================
+
+    ! X landmarks and moderator probe values
+    XREF XVRT XTL XTM XTH XMAX
+    MLO MMN MHI
+
+    ! Spline-coded X landmarks
+    RFS1 RFS2 VRS1 VRS2
+    TLS1 TLS2 TMS1 TMS2 THS1 THS2
+    MXS1 MXS2
+
+    ! Latent intercepts/slopes: moderator = -1 SD
+    ILR SLR ILV SLV ILT SLT ILH SLH
+
+    ! Latent intercepts/slopes: moderator = mean
+    IMR SMR IMV SMV IMT SMT IMH SMH
+
+    ! Latent intercepts/slopes: moderator = +1 SD
+    IHR SHR IHV SHV IHT SHT IHH SHH
+
+    ! Expected values: moderator = -1 SD
+    YLR0 YLR1 YLR2
+    YLV0 YLV1 YLV2
+    YLT0 YLT1 YLT2
+    YLH0 YLH1 YLH2
+
+    ! Expected values: moderator = mean
+    YMR0 YMR1 YMR2
+    YMV0 YMV1 YMV2
+    YMT0 YMT1 YMT2
+    YMH0 YMH1 YMH2
+
+    ! Expected values: moderator = +1 SD
+    YHR0 YHR1 YHR2
+    YHV0 YHV1 YHV2
+    YHT0 YHT1 YHT2
+    YHH0 YHH1 YHH2
+
+    ! Within-moderator contrasts against low-adversity reference
+    DLV0 DLV1 DLV2 DLT0 DLT1 DLT2 DLH0 DLH1 DLH2
+    DMV0 DMV1 DMV2 DMT0 DMT1 DMT2 DMH0 DMH1 DMH2
+    DHV0 DHV1 DHV2 DHT0 DHT1 DHT2 DHH0 DHH1 DHH2
+
+    ! Optional fixed reference from threshold-search definition
+    FXI FXS FXY0 FXY1 FXY2
+  );
+
+  ! =====================================================
+  ! User-defined X values
+  ! =====================================================
+
+  XREF = -0.560;  ! lowest observed centered school adversity
+  XVRT =  0.000;  ! spline knot / vertex
+  XTL  =  .993;  ! threshold at -1 SD DPUB
+  XTM  =  0.831;  ! threshold at mean DPUB
+  XTH  =  .697;  ! threshold at +1 SD DPUB
+  XMAX =  6.107;  ! highest observed centered school adversity
+
+  ! =====================================================
+  ! Moderator probe values
+  ! These come from the threshold-search model.
+  ! Update only if DPUB SD/scaling changes.
+  ! =====================================================
+
+  MLO = -.51;   ! -1 SD DPUB/PDIFF
+  MMN =  0.000;   ! mean DPUB/PDIFF
+  MHI =  .51;   ! +1 SD DPUB/PDIFF
+
+  ! =====================================================
+  ! Convert X landmarks to two-line spline terms.
+  ! If X < 0: S1 = X and S2 = 0.
+  ! If X = 0: S1 = 0 and S2 = 0.
+  ! If X > 0: S1 = 0 and S2 = X.
+  ! =====================================================
+
+  RFS1 = XREF;
+  RFS2 = 0;
+
+  VRS1 = 0;
+  VRS2 = 0;
+
+  TLS1 = 0;
+  TLS2 = XTL;
+
+  TMS1 = 0;
+  TMS2 = XTM;
+
+  THS1 = 0;
+  THS2 = XTH;
+
+  MXS1 = 0;
+  MXS2 = XMAX;
+
+  ! =====================================================
+  ! Optional fixed low-adversity reference used in threshold
+  ! search. This is held at mean DPUB/PDIFF and does not vary
+  ! across moderator levels.
+  ! =====================================================
+
+  FXI  = mu_i + i_x1*RFS1 + i_x2*RFS2;
+  FXS  = mu_s + s_x1*RFS1 + s_x2*RFS2;
+  FXY0 = FXI + FXS*0;
+  FXY1 = FXI + FXS*1;
+  FXY2 = FXI + FXS*2;
+
+  ! =====================================================
+  ! Conditional trajectories at DPUB/PDIFF = -1 SD
+  ! =====================================================
+
+  ILR = mu_i + i_x1*RFS1 + i_x2*RFS2 + i_m*MLO
+        + i_x1m*RFS1*MLO + i_x2m*RFS2*MLO;
+  SLR = mu_s + s_x1*RFS1 + s_x2*RFS2 + s_m*MLO
+        + s_x1m*RFS1*MLO + s_x2m*RFS2*MLO;
+
+  ILV = mu_i + i_x1*VRS1 + i_x2*VRS2 + i_m*MLO
+        + i_x1m*VRS1*MLO + i_x2m*VRS2*MLO;
+  SLV = mu_s + s_x1*VRS1 + s_x2*VRS2 + s_m*MLO
+        + s_x1m*VRS1*MLO + s_x2m*VRS2*MLO;
+
+  ILT = mu_i + i_x1*TLS1 + i_x2*TLS2 + i_m*MLO
+        + i_x1m*TLS1*MLO + i_x2m*TLS2*MLO;
+  SLT = mu_s + s_x1*TLS1 + s_x2*TLS2 + s_m*MLO
+        + s_x1m*TLS1*MLO + s_x2m*TLS2*MLO;
+
+  ILH = mu_i + i_x1*MXS1 + i_x2*MXS2 + i_m*MLO
+        + i_x1m*MXS1*MLO + i_x2m*MXS2*MLO;
+  SLH = mu_s + s_x1*MXS1 + s_x2*MXS2 + s_m*MLO
+        + s_x1m*MXS1*MLO + s_x2m*MXS2*MLO;
+
+  ! =====================================================
+  ! Conditional trajectories at DPUB/PDIFF = mean
+  ! =====================================================
+
+  IMR = mu_i + i_x1*RFS1 + i_x2*RFS2 + i_m*MMN
+        + i_x1m*RFS1*MMN + i_x2m*RFS2*MMN;
+  SMR = mu_s + s_x1*RFS1 + s_x2*RFS2 + s_m*MMN
+        + s_x1m*RFS1*MMN + s_x2m*RFS2*MMN;
+
+  IMV = mu_i + i_x1*VRS1 + i_x2*VRS2 + i_m*MMN
+        + i_x1m*VRS1*MMN + i_x2m*VRS2*MMN;
+  SMV = mu_s + s_x1*VRS1 + s_x2*VRS2 + s_m*MMN
+        + s_x1m*VRS1*MMN + s_x2m*VRS2*MMN;
+
+  IMT = mu_i + i_x1*TMS1 + i_x2*TMS2 + i_m*MMN
+        + i_x1m*TMS1*MMN + i_x2m*TMS2*MMN;
+  SMT = mu_s + s_x1*TMS1 + s_x2*TMS2 + s_m*MMN
+        + s_x1m*TMS1*MMN + s_x2m*TMS2*MMN;
+
+  IMH = mu_i + i_x1*MXS1 + i_x2*MXS2 + i_m*MMN
+        + i_x1m*MXS1*MMN + i_x2m*MXS2*MMN;
+  SMH = mu_s + s_x1*MXS1 + s_x2*MXS2 + s_m*MMN
+        + s_x1m*MXS1*MMN + s_x2m*MXS2*MMN;
+
+  ! =====================================================
+  ! Conditional trajectories at DPUB/PDIFF = +1 SD
+  ! =====================================================
+
+  IHR = mu_i + i_x1*RFS1 + i_x2*RFS2 + i_m*MHI
+        + i_x1m*RFS1*MHI + i_x2m*RFS2*MHI;
+  SHR = mu_s + s_x1*RFS1 + s_x2*RFS2 + s_m*MHI
+        + s_x1m*RFS1*MHI + s_x2m*RFS2*MHI;
+
+  IHV = mu_i + i_x1*VRS1 + i_x2*VRS2 + i_m*MHI
+        + i_x1m*VRS1*MHI + i_x2m*VRS2*MHI;
+  SHV = mu_s + s_x1*VRS1 + s_x2*VRS2 + s_m*MHI
+        + s_x1m*VRS1*MHI + s_x2m*VRS2*MHI;
+
+  IHT = mu_i + i_x1*THS1 + i_x2*THS2 + i_m*MHI
+        + i_x1m*THS1*MHI + i_x2m*THS2*MHI;
+  SHT = mu_s + s_x1*THS1 + s_x2*THS2 + s_m*MHI
+        + s_x1m*THS1*MHI + s_x2m*THS2*MHI;
+
+  IHH = mu_i + i_x1*MXS1 + i_x2*MXS2 + i_m*MHI
+        + i_x1m*MXS1*MHI + i_x2m*MXS2*MHI;
+  SHH = mu_s + s_x1*MXS1 + s_x2*MXS2 + s_m*MHI
+        + s_x1m*MXS1*MHI + s_x2m*MXS2*MHI;
+
+  ! =====================================================
+  ! Expected trajectory values at growth loadings 0, 1, and 2
+  ! =====================================================
+
+  YLR0 = ILR + SLR*0;
+  YLR1 = ILR + SLR*1;
+  YLR2 = ILR + SLR*2;
+
+  YLV0 = ILV + SLV*0;
+  YLV1 = ILV + SLV*1;
+  YLV2 = ILV + SLV*2;
+
+  YLT0 = ILT + SLT*0;
+  YLT1 = ILT + SLT*1;
+  YLT2 = ILT + SLT*2;
+
+  YLH0 = ILH + SLH*0;
+  YLH1 = ILH + SLH*1;
+  YLH2 = ILH + SLH*2;
+
+  YMR0 = IMR + SMR*0;
+  YMR1 = IMR + SMR*1;
+  YMR2 = IMR + SMR*2;
+
+  YMV0 = IMV + SMV*0;
+  YMV1 = IMV + SMV*1;
+  YMV2 = IMV + SMV*2;
+
+  YMT0 = IMT + SMT*0;
+  YMT1 = IMT + SMT*1;
+  YMT2 = IMT + SMT*2;
+
+  YMH0 = IMH + SMH*0;
+  YMH1 = IMH + SMH*1;
+  YMH2 = IMH + SMH*2;
+
+  YHR0 = IHR + SHR*0;
+  YHR1 = IHR + SHR*1;
+  YHR2 = IHR + SHR*2;
+
+  YHV0 = IHV + SHV*0;
+  YHV1 = IHV + SHV*1;
+  YHV2 = IHV + SHV*2;
+
+  YHT0 = IHT + SHT*0;
+  YHT1 = IHT + SHT*1;
+  YHT2 = IHT + SHT*2;
+
+  YHH0 = IHH + SHH*0;
+  YHH1 = IHH + SHH*1;
+  YHH2 = IHH + SHH*2;
+
+  ! =====================================================
+  ! Within-moderator contrasts against the low-adversity
+  ! reference at the same DPUB/PDIFF level.
+  ! Positive values mean the landmark trajectory is above
+  ! the corresponding low-adversity trajectory.
+  ! =====================================================
+
+  DLV0 = YLV0 - YLR0;
+  DLV1 = YLV1 - YLR1;
+  DLV2 = YLV2 - YLR2;
+
+  DLT0 = YLT0 - YLR0;
+  DLT1 = YLT1 - YLR1;
+  DLT2 = YLT2 - YLR2;
+
+  DLH0 = YLH0 - YLR0;
+  DLH1 = YLH1 - YLR1;
+  DLH2 = YLH2 - YLR2;
+
+  DMV0 = YMV0 - YMR0;
+  DMV1 = YMV1 - YMR1;
+  DMV2 = YMV2 - YMR2;
+
+  DMT0 = YMT0 - YMR0;
+  DMT1 = YMT1 - YMR1;
+  DMT2 = YMT2 - YMR2;
+
+  DMH0 = YMH0 - YMR0;
+  DMH1 = YMH1 - YMR1;
+  DMH2 = YMH2 - YMR2;
+
+  DHV0 = YHV0 - YHR0;
+  DHV1 = YHV1 - YHR1;
+  DHV2 = YHV2 - YHR2;
+
+  DHT0 = YHT0 - YHR0;
+  DHT1 = YHT1 - YHR1;
+  DHT2 = YHT2 - YHR2;
+
+  DHH0 = YHH0 - YHR0;
+  DHH1 = YHH1 - YHR1;
+  DHH2 = YHH2 - YHR2;
+  
+  OUTPUT:
+    STDYX TECH1 TECH3 TECH4 CINTERVAL;
